@@ -1,6 +1,6 @@
 <h1 align="center"> weather </h1>
 
-基于 [高德开放平台](https://lbs.amap.com) 的 PHP 天气信息组件。
+基于 [高德开放平台](https://lbs.amap.com) 的 PHP 天气信息组件
 
 ## 安装
 
