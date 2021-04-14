@@ -2,6 +2,8 @@
 
 基于 [高德开放平台](https://lbs.amap.com) 的 PHP 天气信息组件
 
+![StyleCI build status](https://github.styleci.io/repos/357738699/shield)
+
 ## 安装
 
 ```shell
