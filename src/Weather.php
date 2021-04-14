@@ -46,7 +46,7 @@ class Weather
         return $this->getWeather($city, 'all', $format);
     }
 
-    public function getWeather($city,$type = 'base',$format = 'json')
+    public function getWeather($city, $type = 'base', $format = 'json')
     {
         // 高德地图天气查询 url
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
