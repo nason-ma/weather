@@ -25,7 +25,7 @@ $weather = new Weather($key);
 ## 获取实时天气
 
 ```php
-$response = $weather->getWeather('深圳');
+$response = $weather->getLiveWeather('深圳');
 ```
 #### 示例：
 
@@ -54,7 +54,7 @@ $response = $weather->getWeather('深圳');
 ## 获取近期天气预报
 
 ```php
-$response = $weather->getWeather('深圳', 'all');
+$response = $weather->getForecastsWeather('深圳');
 ```
 #### 示例：
 
@@ -127,10 +127,14 @@ $response = $weather->getWeather('深圳', 'all');
 
 ## 获取 XML 格式返回值
 
-#### 第三个参数为返回值类型，可选 `json` 与 `xml` ，默认 `json` ：
+#### 第二个参数为返回值类型，可选 `json` 与 `xml` ，默认 `json` ：
 
 ```php
-$response = $weather->getWeather('深圳', 'all', 'xml');
+// 实时天气
+$response = $weather->getLiveWeather('深圳', 'xml');
+
+// 近期天气预报
+$response = $weather->getForecastsWeather('深圳', 'xml');
 ```
 #### 示例：
 
@@ -189,7 +193,11 @@ WEATHER_API_KEY=xxxxxxxxxxxxxxxxxxxxx
 ```php
 public function edit(Weather $weather)
 {
-    $response = $weather->getWeather('深圳');
+    // 实时天气
+    $response = $weather->getLiveWeather('深圳');
+    
+    // 近期天气预报
+    $response = $weather->getForecastsWeather('深圳');
 }
 ```
 
@@ -198,7 +206,11 @@ public function edit(Weather $weather)
 ```php
 public function edit(Weather $weather)
 {
-    $response = app('weather')->getWeather('深圳');
+    // 实时天气
+    $response = app('weather')->getLiveWeather('深圳');
+    
+    // 近期天气预报
+    $response = app('weather')->getForecastsWeather('深圳');
 }
 ```
 

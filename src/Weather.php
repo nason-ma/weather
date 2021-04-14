@@ -60,6 +60,15 @@ class Weather
         $this->guzzleOptions = $options;
     }
 
+    public function getLiveWeather($city, $format = 'json')
+    {
+        return $this->getWeather($city, 'base', $format);
+    }
+
+    public function getForecastsWeather($city, $format = 'json')
+    {
+        return $this->getWeather($city, 'all', $format);
+    }
 
     public function getWeather($city, string $type = 'base', string $format = 'json')
     {
