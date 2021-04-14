@@ -1,0 +1,29 @@
+{
+    "name": "nason/weather",
+    "description": "A weather SDK.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "nason",
+            "email": "878826676@qq.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.3",
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nason\\Weather\\": "./src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nason\\Weather\\ServiceProvider"
+            ]
+        }
+    }
+}
+}
