@@ -1,35 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * Author: Nason
- * Date: 2021/4/13
- * Time: 11:38
+
+/*
+ * This file is part of the nason/weather.
  *
- *                    _ooOoo_
- *                   o8888888o
- *                   88" . "88
- *                   (| -_- |)
- *                    O\ = /O
- *                ____/`---'\____
- *              .   ' \\| |// `.
- *               / \\||| : |||// \
- *             / _||||| -:- |||||- \
- *               | | \\\ - /// | |
- *             | \_| ''\---/'' | |
- *              \ .-\__ `-` ___/-. /
- *           ___`. .' /--.--\ `. . __
- *        ."" '< `.___\_<|>_/___.' >'"".
- *       | | : `- \`.;`\ _ /`;.`/ - ` : | |
- *         \ \ `-. \_ __\ /__ _/ .-` / /
- * ======`-.____`-.___\_____/___.-`____.-'======
- *                    `=---='
+ * (c) nason <878826676@qq.com>
  *
- * .............................................
- *          佛祖保佑             永无BUG
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Nason\Weather;
-
 
 use GuzzleHttp\Client;
 use Nason\Weather\Exceptions\HttpException;
@@ -37,23 +17,19 @@ use Nason\Weather\Exceptions\InvalidArgumentException;
 
 class Weather
 {
-
     protected $key;
 
     protected $guzzleOptions = [];
-
 
     public function __construct($key)
     {
         $this->key = $key;
     }
 
-
     public function getHttpClient()
     {
         return new Client($this->guzzleOptions);
     }
-
 
     public function setGuzzleOptions(array $options)
     {
@@ -73,14 +49,14 @@ class Weather
     public function getWeather($city,$type = 'base',$format = 'json')
     {
         // 高德地图天气查询 url
-        $url = "https://restapi.amap.com/v3/weather/weatherInfo";
+        $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
         if (!\in_array(\strtolower($format), ['json', 'xml'])) {
-            throw new InvalidArgumentException('Invalid response format: ' . $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
         if (!\in_array(\strtolower($type), ['base', 'all'])) {
-            throw new InvalidArgumentException('Invalid type value(base/all): ' . $type);
+            throw new InvalidArgumentException('Invalid type value(base/all): '.$type);
         }
 
         $query = array_filter([
@@ -92,8 +68,9 @@ class Weather
 
         try {
             $response = $this->getHttpClient()->get($url, [
-                'query' => $query
+                'query' => $query,
             ])->getBody()->getContents();
+
             return 'json' === $format ? \json_decode($response, true) : $response;
         } catch (\Exception $e) {
             throw new HttpException($e->getMessage(), $e->getCode(), $e);

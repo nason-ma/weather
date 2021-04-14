@@ -1,31 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * Author: Nason
- * Date: 2021/4/13
- * Time: 14:05
+
+/*
+ * This file is part of the nason/weather.
  *
- *                    _ooOoo_
- *                   o8888888o
- *                   88" . "88
- *                   (| -_- |)
- *                    O\ = /O
- *                ____/`---'\____
- *              .   ' \\| |// `.
- *               / \\||| : |||// \
- *             / _||||| -:- |||||- \
- *               | | \\\ - /// | |
- *             | \_| ''\---/'' | |
- *              \ .-\__ `-` ___/-. /
- *           ___`. .' /--.--\ `. . __
- *        ."" '< `.___\_<|>_/___.' >'"".
- *       | | : `- \`.;`\ _ /`;.`/ - ` : | |
- *         \ \ `-. \_ __\ /__ _/ .-` / /
- * ======`-.____`-.___\_____/___.-`____.-'======
- *                    `=---='
+ * (c) nason <878826676@qq.com>
  *
- * .............................................
- *          佛祖保佑             永无BUG
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Nason\Weather\Tests;
@@ -41,7 +22,6 @@ use PHPUnit\Framework\TestCase;
 
 class WeatherTest extends TestCase
 {
-
     // 检查 $type 参数
     public function testGetWeatherWithInvalidType()
     {
